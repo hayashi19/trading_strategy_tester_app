@@ -9,12 +9,12 @@ import 'package:intl/intl.dart';
 import 'package:trading_strategy_tester_app/controller/controller.dart';
 
 class DescPage extends StatelessWidget {
-  const DescPage({Key? key}) : super(key: key);
+  const DescPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ListView(
-      padding: EdgeInsets.only(
+      padding: const EdgeInsets.only(
         left: 10,
         top: 32,
         right: 10,
@@ -33,8 +33,8 @@ class DescPage extends StatelessWidget {
 
 class DescPage_CapitalInfo extends StatelessWidget {
   const DescPage_CapitalInfo({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +57,7 @@ class DescPage_CapitalInfo extends StatelessWidget {
                 controller.title_desc.value.toUpperCase(),
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headline2,
+                style: Theme.of(context).textTheme.displayMedium,
               ),
             ),
           ),
@@ -67,14 +67,14 @@ class DescPage_CapitalInfo extends StatelessWidget {
             "Initial Cap",
             style: Theme.of(context)
                 .textTheme
-                .headline1!
+                .displayLarge!
                 .merge(const TextStyle(fontSize: 14)),
           ),
           // init cap value
           Obx(
             () => Text(
               "${MoneyFormatter(amount: controller.initCap_desc.value).output.compactNonSymbol} ${controller.currency_desc.value}",
-              style: Theme.of(context).textTheme.headline2!.merge(
+              style: Theme.of(context).textTheme.displayMedium!.merge(
                   const TextStyle(fontSize: 32, fontWeight: FontWeight.bold)),
             ),
           ),
@@ -105,7 +105,7 @@ class DescPage_CapitalInfo extends StatelessWidget {
                       "Capital Info",
                       style: Theme.of(context)
                           .textTheme
-                          .headline1!
+                          .displayLarge!
                           .merge(const TextStyle(fontSize: 14)),
                     ),
                   ],
@@ -121,8 +121,8 @@ class DescPage_CapitalInfo extends StatelessWidget {
 
 class DescPage_CapitalInfo_EditPage extends StatelessWidget {
   const DescPage_CapitalInfo_EditPage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -145,7 +145,7 @@ class DescPage_CapitalInfo_EditPage extends StatelessWidget {
                         "Edit Info",
                         style: Theme.of(context)
                             .textTheme
-                            .headline1!
+                            .displayLarge!
                             .merge(const TextStyle(fontSize: 14)),
                       ),
                     ),
@@ -161,12 +161,12 @@ class DescPage_CapitalInfo_EditPage extends StatelessWidget {
                         controller: controller.strategyTitleController_trade,
                         keyboardType: TextInputType.text,
                         maxLines: 1,
-                        style: Theme.of(context).textTheme.headline2,
+                        style: Theme.of(context).textTheme.displayMedium,
                         decoration: InputDecoration.collapsed(
                           hintText: "Strategy Title",
                           hintStyle: Theme.of(context)
                               .textTheme
-                              .headline1!
+                              .displayLarge!
                               .merge(const TextStyle(fontSize: 14)),
                         ),
                       ),
@@ -186,12 +186,12 @@ class DescPage_CapitalInfo_EditPage extends StatelessWidget {
                               controller: controller.initCapController_trade,
                               keyboardType: TextInputType.number,
                               maxLines: 1,
-                              style: Theme.of(context).textTheme.headline2,
+                              style: Theme.of(context).textTheme.displayMedium,
                               decoration: InputDecoration.collapsed(
                                 hintText: "Initial Cap",
                                 hintStyle: Theme.of(context)
                                     .textTheme
-                                    .headline1!
+                                    .displayLarge!
                                     .merge(const TextStyle(fontSize: 14)),
                               ),
                             ),
@@ -208,9 +208,9 @@ class DescPage_CapitalInfo_EditPage extends StatelessWidget {
                                 theme: CurrencyPickerThemeData(
                                   backgroundColor: const Color(0xFF212529),
                                   titleTextStyle:
-                                      Theme.of(context).textTheme.headline2,
+                                      Theme.of(context).textTheme.displayMedium,
                                   subtitleTextStyle:
-                                      Theme.of(context).textTheme.headline1,
+                                      Theme.of(context).textTheme.displayLarge,
                                 ),
                                 onSelect: (Currency currency) {
                                   controller.currencyTemp_desc.value =
@@ -232,7 +232,7 @@ class DescPage_CapitalInfo_EditPage extends StatelessWidget {
                                             .toUpperCase(),
                                         style: Theme.of(context)
                                             .textTheme
-                                            .headline1!
+                                            .displayLarge!
                                             .merge(
                                                 const TextStyle(fontSize: 14)),
                                       ),
@@ -252,9 +252,9 @@ class DescPage_CapitalInfo_EditPage extends StatelessWidget {
                     ElevatedButton.icon(
                       style: ButtonStyle(
                         backgroundColor:
-                            MaterialStateProperty.all(const Color(0xFF495057)),
+                            WidgetStateProperty.all(const Color(0xFF495057)),
                         foregroundColor:
-                            MaterialStateProperty.all(const Color(0xFFEDF2FB)),
+                            WidgetStateProperty.all(const Color(0xFFEDF2FB)),
                       ),
                       onPressed: () {
                         controller.saveCapitalInfo_desc();
@@ -289,8 +289,8 @@ class DescPage_CapitalInfo_EditPage extends StatelessWidget {
 
 class DescPage_Date extends StatelessWidget {
   const DescPage_Date({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -311,7 +311,7 @@ class DescPage_Date extends StatelessWidget {
             textAlign: TextAlign.center,
             style: Theme.of(context)
                 .textTheme
-                .headline1!
+                .displayLarge!
                 .merge(const TextStyle(fontSize: 14)),
           ),
           const SizedBox(height: 10),
@@ -340,7 +340,7 @@ class DescPage_Date extends StatelessWidget {
                                 .format(controller.duration_trade.value.start),
                             style: Theme.of(context)
                                 .textTheme
-                                .headline1!
+                                .displayLarge!
                                 .merge(const TextStyle(fontSize: 14)),
                           ),
                         ),
@@ -374,7 +374,7 @@ class DescPage_Date extends StatelessWidget {
                                 .format(controller.duration_trade.value.end),
                             style: Theme.of(context)
                                 .textTheme
-                                .headline1!
+                                .displayLarge!
                                 .merge(const TextStyle(fontSize: 14)),
                           ),
                         ),
@@ -394,7 +394,7 @@ class DescPage_Date extends StatelessWidget {
                 "Duration ${controller.duration_trade.value.duration.inDays} D",
                 style: Theme.of(context)
                     .textTheme
-                    .headline1!
+                    .displayLarge!
                     .merge(const TextStyle(fontSize: 14)),
               ),
             ),
@@ -407,8 +407,8 @@ class DescPage_Date extends StatelessWidget {
 
 class DescPage_IndicatorList extends StatelessWidget {
   const DescPage_IndicatorList({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -421,7 +421,7 @@ class DescPage_IndicatorList extends StatelessWidget {
       ),
       child: Column(
         children: <Widget>[
-          //indicator header
+          //indicator displaySmallr
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
@@ -431,7 +431,7 @@ class DescPage_IndicatorList extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: Theme.of(context)
                     .textTheme
-                    .headline1!
+                    .displayLarge!
                     .merge(const TextStyle(fontSize: 14)),
               ),
               // add indicator button
@@ -460,7 +460,7 @@ class DescPage_IndicatorList extends StatelessWidget {
                           "Add",
                           style: Theme.of(context)
                               .textTheme
-                              .headline1!
+                              .displayLarge!
                               .merge(const TextStyle(fontSize: 14)),
                         ),
                       ],
@@ -496,19 +496,19 @@ class DescPage_IndicatorList extends StatelessWidget {
                         // indicator name
                         leading: Text(
                           "#${index + 1}",
-                          style: Theme.of(context).textTheme.headline1,
+                          style: Theme.of(context).textTheme.displayLarge,
                         ),
                         // indicator desc
                         title: Text(
                           controller.strategyIndicatorList[index].indicatorName
                               .toUpperCase(),
-                          style: Theme.of(context).textTheme.headline2,
+                          style: Theme.of(context).textTheme.displayMedium,
                         ),
                         subtitle: Text(
                           controller.strategyIndicatorList[index].indicatorDesc,
                           style: Theme.of(context)
                               .textTheme
-                              .headline1!
+                              .displayLarge!
                               .merge(const TextStyle(fontSize: 14)),
                         ),
                         // delete button
@@ -537,7 +537,7 @@ class DescPage_IndicatorList extends StatelessWidget {
                 : Center(
                     child: Text(
                       "No indicator yet",
-                      style: Theme.of(context).textTheme.headline1,
+                      style: Theme.of(context).textTheme.displayLarge,
                     ),
                   ),
           ),
@@ -551,10 +551,10 @@ class DescPage_IndicatorList_EditPage extends StatelessWidget {
   int index;
   bool isEdit;
   DescPage_IndicatorList_EditPage({
-    Key? key,
+    super.key,
     required this.isEdit,
     required this.index,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -577,7 +577,7 @@ class DescPage_IndicatorList_EditPage extends StatelessWidget {
                         "Add Indicator",
                         style: Theme.of(context)
                             .textTheme
-                            .headline1!
+                            .displayLarge!
                             .merge(const TextStyle(fontSize: 14)),
                       ),
                     ),
@@ -593,12 +593,12 @@ class DescPage_IndicatorList_EditPage extends StatelessWidget {
                         controller: controller.indicatorNameController_trade,
                         keyboardType: TextInputType.text,
                         maxLines: 1,
-                        style: Theme.of(context).textTheme.headline2,
+                        style: Theme.of(context).textTheme.displayMedium,
                         decoration: InputDecoration.collapsed(
                           hintText: "indicator name",
                           hintStyle: Theme.of(context)
                               .textTheme
-                              .headline1!
+                              .displayLarge!
                               .merge(const TextStyle(fontSize: 14)),
                         ),
                       ),
@@ -615,12 +615,12 @@ class DescPage_IndicatorList_EditPage extends StatelessWidget {
                         controller: controller.indicatorDescController_trade,
                         keyboardType: TextInputType.multiline,
                         maxLines: null,
-                        style: Theme.of(context).textTheme.headline2,
+                        style: Theme.of(context).textTheme.displayMedium,
                         decoration: InputDecoration.collapsed(
                           hintText: "how to use the indicator . . .",
                           hintStyle: Theme.of(context)
                               .textTheme
-                              .headline1!
+                              .displayLarge!
                               .merge(const TextStyle(fontSize: 14)),
                         ),
                       ),
@@ -630,9 +630,9 @@ class DescPage_IndicatorList_EditPage extends StatelessWidget {
                     ElevatedButton.icon(
                       style: ButtonStyle(
                         backgroundColor:
-                            MaterialStateProperty.all(const Color(0xFF495057)),
+                            WidgetStateProperty.all(const Color(0xFF495057)),
                         foregroundColor:
-                            MaterialStateProperty.all(const Color(0xFFEDF2FB)),
+                            WidgetStateProperty.all(const Color(0xFFEDF2FB)),
                       ),
                       onPressed: () => isEdit
                           ? controller.saveEditStrategyIndicator_desc(index)

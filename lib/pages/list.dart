@@ -9,7 +9,7 @@ import 'package:trading_strategy_tester_app/controller/controller.dart';
 import 'package:trading_strategy_tester_app/pages/trade.dart';
 
 class StrategyList extends StatelessWidget {
-  const StrategyList({Key? key}) : super(key: key);
+  const StrategyList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,43 +18,46 @@ class StrategyList extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "Strategy List",
-          style: Theme.of(context).textTheme.headline1,
+          style: Theme.of(context).textTheme.displayLarge,
         ),
         centerTitle: true,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          FutureBuilder(
-            future: controller.getSavedStrategy(),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.done) {
-                return const StrategyList_Listview();
-              } else {
-                return const Expanded(
-                  child: Center(
-                    child: CircularProgressIndicator(),
-                  ),
-                );
-              }
-            },
-          ),
-          ADS(ad: controller.listBanner),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          controller.addStrategy();
-          Get.to(TradingPage(index: controller.strategyList.length - 1));
-        },
-        child: const Icon(Icons.add_rounded),
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            FutureBuilder(
+              future: controller.getSavedStrategy(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  return const StrategyList_Listview();
+                } else {
+                  return const Expanded(
+                    child: Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  );
+                }
+              },
+            ),
+            ADS(ad: controller.listBanner),
+            ElevatedButton.icon(
+              onPressed: () {
+                controller.addStrategy();
+                Get.to(TradingPage(index: controller.strategyList.length - 1));
+              },
+              icon: const Icon(Icons.add_rounded),
+              label: const Text("Add Strategy"),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
 
 class StrategyList_Listview extends StatelessWidget {
-  const StrategyList_Listview({Key? key}) : super(key: key);
+  const StrategyList_Listview({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +69,7 @@ class StrategyList_Listview extends StatelessWidget {
               ? Center(
                   child: Text(
                     "No strategy yet",
-                    style: Theme.of(context).textTheme.headline1,
+                    style: Theme.of(context).textTheme.displayLarge,
                   ),
                 )
               : Padding(
@@ -88,9 +91,9 @@ class StrategyList_Listview extends StatelessWidget {
 class StrategyList_Listview_Detail extends StatelessWidget {
   int index;
   StrategyList_Listview_Detail({
-    Key? key,
+    super.key,
     required this.index,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -136,9 +139,9 @@ class StrategyList_Listview_Detail extends StatelessWidget {
 class StrategyList_Listview_Detail_Leading extends StatelessWidget {
   int index;
   StrategyList_Listview_Detail_Leading({
-    Key? key,
+    super.key,
     required this.index,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -146,23 +149,23 @@ class StrategyList_Listview_Detail_Leading extends StatelessWidget {
     return IconButton(
       onPressed: () => Get.defaultDialog(
         middleText: "Delete ${controller.strategyList[index].strategyTitle}?",
-        backgroundColor: Color(0xFF343A40),
-        titleStyle: TextStyle(color: Colors.red),
-        middleTextStyle: TextStyle(color: Colors.white),
+        backgroundColor: const Color(0xFF343A40),
+        titleStyle: const TextStyle(color: Colors.red),
+        middleTextStyle: const TextStyle(color: Colors.white),
         confirm: InkWell(
           onTap: () {
             controller.deleteStrategy(index);
             Get.back();
           },
           child: Ink(
-            padding: EdgeInsets.all(5),
-            decoration: BoxDecoration(
+            padding: const EdgeInsets.all(5),
+            decoration: const BoxDecoration(
               color: Colors.red,
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
             child: Text(
               "Delete",
-              style: Theme.of(context).textTheme.headline2,
+              style: Theme.of(context).textTheme.displayMedium,
             ),
           ),
         ),
@@ -172,7 +175,7 @@ class StrategyList_Listview_Detail_Leading extends StatelessWidget {
           },
           child: Text(
             "Cancel",
-            style: Theme.of(context).textTheme.headline1,
+            style: Theme.of(context).textTheme.displayLarge,
           ),
         ),
       ),
@@ -185,9 +188,9 @@ class StrategyList_Listview_Detail_Leading extends StatelessWidget {
 class StrategyList_Listview_Detail_Ttitle extends StatelessWidget {
   int index;
   StrategyList_Listview_Detail_Ttitle({
-    Key? key,
+    super.key,
     required this.index,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -197,7 +200,7 @@ class StrategyList_Listview_Detail_Ttitle extends StatelessWidget {
       softWrap: false,
       overflow: TextOverflow.ellipsis,
       textAlign: TextAlign.start,
-      style: Theme.of(context).textTheme.headline2,
+      style: Theme.of(context).textTheme.displayMedium,
     );
   }
 }
@@ -205,9 +208,9 @@ class StrategyList_Listview_Detail_Ttitle extends StatelessWidget {
 class StrategyList_Listview_Detail_Duration extends StatelessWidget {
   int index;
   StrategyList_Listview_Detail_Duration({
-    Key? key,
+    super.key,
     required this.index,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -219,7 +222,7 @@ class StrategyList_Listview_Detail_Duration extends StatelessWidget {
         softWrap: false,
         overflow: TextOverflow.ellipsis,
         textAlign: TextAlign.start,
-        style: Theme.of(context).textTheme.headline1!.merge(const TextStyle(
+        style: Theme.of(context).textTheme.displayLarge!.merge(const TextStyle(
               fontSize: 16,
             )),
       ),
@@ -230,9 +233,9 @@ class StrategyList_Listview_Detail_Duration extends StatelessWidget {
 class StrategyList_Listview_Detail_Winrate extends StatelessWidget {
   int index;
   StrategyList_Listview_Detail_Winrate({
-    Key? key,
+    super.key,
     required this.index,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -249,8 +252,8 @@ class StrategyList_Listview_Detail_Winrate extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.end,
             style: controller.winrate_list.value > 0
-                ? Theme.of(context).textTheme.headline3
-                : Theme.of(context).textTheme.headline4,
+                ? Theme.of(context).textTheme.displaySmall
+                : Theme.of(context).textTheme.headlineLarge,
           ),
         ),
         const SizedBox(width: 5),
@@ -258,8 +261,8 @@ class StrategyList_Listview_Detail_Winrate extends StatelessWidget {
           "%",
           softWrap: false,
           style: controller.winrate_list.value > 0
-              ? Theme.of(context).textTheme.headline3
-              : Theme.of(context).textTheme.headline4,
+              ? Theme.of(context).textTheme.displaySmall
+              : Theme.of(context).textTheme.headlineLarge,
         ),
       ],
     );
@@ -269,9 +272,9 @@ class StrategyList_Listview_Detail_Winrate extends StatelessWidget {
 class StrategyList_Listview_Detail_Gain extends StatelessWidget {
   int index;
   StrategyList_Listview_Detail_Gain({
-    Key? key,
+    super.key,
     required this.index,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -306,8 +309,8 @@ class StrategyList_Listview_Detail_Gain extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.end,
               style: controller.gain_list.value > 0
-                  ? Theme.of(context).textTheme.headline3
-                  : Theme.of(context).textTheme.headline4,
+                  ? Theme.of(context).textTheme.displaySmall
+                  : Theme.of(context).textTheme.headlineLarge,
             ),
           ),
           const SizedBox(width: 5),
@@ -315,8 +318,8 @@ class StrategyList_Listview_Detail_Gain extends StatelessWidget {
             "%",
             softWrap: false,
             style: controller.gain_list.value > 0
-                ? Theme.of(context).textTheme.headline3
-                : Theme.of(context).textTheme.headline4,
+                ? Theme.of(context).textTheme.displaySmall
+                : Theme.of(context).textTheme.headlineLarge,
           ),
         ],
       ),

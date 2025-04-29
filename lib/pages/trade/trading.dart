@@ -3,18 +3,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:money_formatter/money_formatter.dart';
-import 'package:slider_gradient/slider_gradient.dart';
 import 'package:tiny_charts/tiny_charts.dart';
 import 'package:trading_strategy_tester_app/controller/controller.dart';
 
 class TradePage extends StatelessWidget {
-  const TradePage({
-    Key? key,
-  }) : super(key: key);
+  const TradePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final AllPageController controller = Get.put(AllPageController());
+    Get.put(AllPageController());
     return ListView(
       padding: const EdgeInsets.only(
         left: 10,
@@ -36,9 +33,9 @@ class TradePage extends StatelessWidget {
               bottom: Radius.circular(10),
             ),
           ),
-          child: Column(
+          child: const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const <Widget>[
+            children: <Widget>[
               TradePage_TradeSetting(),
               SizedBox(height: 14),
               TradePage_Budget(),
@@ -63,8 +60,8 @@ class TradePage extends StatelessWidget {
 
 class TradePage_TradeSetting extends StatelessWidget {
   const TradePage_TradeSetting({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +104,7 @@ class TradePage_TradeSetting extends StatelessWidget {
                     () => Text(
                       controller.timeframeValue_trade.value,
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headline1!.merge(
+                      style: Theme.of(context).textTheme.displayLarge!.merge(
                             const TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
@@ -133,7 +130,7 @@ class TradePage_TradeSetting extends StatelessWidget {
                           ? "${controller.feePercentage_trade.value}%"
                           : "${controller.feeNominal_trade.value} ${controller.currency_desc.value}",
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headline1!.merge(
+                      style: Theme.of(context).textTheme.displayLarge!.merge(
                             const TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
@@ -157,7 +154,7 @@ class TradePage_TradeSetting extends StatelessWidget {
                     () => Text(
                       "x${controller.leverage_trade.value.round()}",
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headline1!.merge(
+                      style: Theme.of(context).textTheme.displayLarge!.merge(
                             const TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
@@ -181,7 +178,7 @@ class TradePage_TradeSetting extends StatelessWidget {
                     () => Text(
                       controller.tradingPair_trade.value.toUpperCase(),
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headline1!.merge(
+                      style: Theme.of(context).textTheme.displayLarge!.merge(
                             const TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.bold,
@@ -201,8 +198,8 @@ class TradePage_TradeSetting extends StatelessWidget {
 
 class TradePage_TradeSetting_Timeframe extends StatelessWidget {
   const TradePage_TradeSetting_Timeframe({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -225,7 +222,7 @@ class TradePage_TradeSetting_Timeframe extends StatelessWidget {
                         "Choose Timeframe",
                         style: Theme.of(context)
                             .textTheme
-                            .headline1!
+                            .displayLarge!
                             .merge(const TextStyle(fontSize: 14)),
                       ),
                     ),
@@ -277,7 +274,6 @@ class TradePage_TradeSetting_Timeframe extends StatelessWidget {
             return const Center(
               child: CircularProgressIndicator(),
             );
-            ;
           }
         },
       ),
@@ -287,8 +283,8 @@ class TradePage_TradeSetting_Timeframe extends StatelessWidget {
 
 class TradePage_TradeSetting_Fee extends StatelessWidget {
   const TradePage_TradeSetting_Fee({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -307,7 +303,7 @@ class TradePage_TradeSetting_Fee extends StatelessWidget {
                   "Edit Info",
                   style: Theme.of(context)
                       .textTheme
-                      .headline1!
+                      .displayLarge!
                       .merge(const TextStyle(fontSize: 14)),
                 ),
               ),
@@ -329,11 +325,11 @@ class TradePage_TradeSetting_Fee extends StatelessWidget {
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration.collapsed(
                           hintText: "type your fee",
-                          hintStyle: Theme.of(context).textTheme.headline1,
+                          hintStyle: Theme.of(context).textTheme.displayLarge,
                         ),
                         textAlign: TextAlign.start,
                         textAlignVertical: TextAlignVertical.center,
-                        style: Theme.of(context).textTheme.headline2,
+                        style: Theme.of(context).textTheme.displayMedium,
                       ),
                     ),
                     const SizedBox(width: 10),
@@ -366,7 +362,7 @@ class TradePage_TradeSetting_Fee extends StatelessWidget {
                                 child: Text(value),
                               );
                             }).toList(),
-                            style: Theme.of(context).textTheme.headline2,
+                            style: Theme.of(context).textTheme.displayMedium,
                             dropdownColor: const Color(0xFF343A40),
                           ),
                         ),
@@ -378,10 +374,10 @@ class TradePage_TradeSetting_Fee extends StatelessWidget {
               const SizedBox(height: 10),
               ElevatedButton.icon(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
+                  backgroundColor: WidgetStateProperty.all(
                     const Color(0xFF495057),
                   ),
-                  foregroundColor: MaterialStateProperty.all(
+                  foregroundColor: WidgetStateProperty.all(
                     const Color(0xFFEDF2FB),
                   ),
                 ),
@@ -415,8 +411,8 @@ class TradePage_TradeSetting_Fee extends StatelessWidget {
 
 class TradePage_TradeSetting_Leverage extends StatelessWidget {
   const TradePage_TradeSetting_Leverage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -439,7 +435,7 @@ class TradePage_TradeSetting_Leverage extends StatelessWidget {
                           "Set Leverage",
                           style: Theme.of(context)
                               .textTheme
-                              .headline1!
+                              .displayLarge!
                               .merge(const TextStyle(fontSize: 14)),
                         ),
                       ),
@@ -488,10 +484,11 @@ class TradePage_TradeSetting_Leverage extends StatelessWidget {
                                 decoration: InputDecoration.collapsed(
                                   hintText: "leverage x",
                                   hintStyle:
-                                      Theme.of(context).textTheme.headline1,
+                                      Theme.of(context).textTheme.displayLarge,
                                 ),
                                 textAlign: TextAlign.center,
-                                style: Theme.of(context).textTheme.headline2,
+                                style:
+                                    Theme.of(context).textTheme.displayMedium,
                               ),
                             ),
                             const SizedBox(width: 10),
@@ -518,80 +515,19 @@ class TradePage_TradeSetting_Leverage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 10),
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: const BoxDecoration(
-                          color: Color(0xFF343A40),
-                          borderRadius: BorderRadius.all(Radius.circular(5)),
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              "1",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline1!
-                                  .merge(const TextStyle(fontSize: 14)),
-                            ),
-                            Expanded(
-                              child: Obx(
-                                () => SliderGradient(
-                                  min: 1,
-                                  max: 300,
-                                  value: controller.leverageTemp_trade.value,
-                                  divisions: 5,
-                                  isGradientBg: true,
-                                  colors: const [
-                                    Colors.blue,
-                                    Colors.blueAccent,
-                                    Colors.redAccent,
-                                    Colors.red,
-                                  ],
-                                  isShowLabel: false,
-                                  label: controller.leverageTemp_trade.value
-                                      .round()
-                                      .toString(),
-                                  sliderStyle: const SliderStyle(
-                                    height: 10,
-                                    radius: 100,
-                                  ),
-                                  thumbStyle: const ThumbStyle(
-                                    width: 10,
-                                    height: 25,
-                                  ),
-                                  onChange: (SliderData newValue) {
-                                    controller.leverage_trade.value =
-                                        newValue.value;
-                                    controller.leverageController_trade.text =
-                                        newValue.value.round().toString();
-                                  },
-                                ),
-                              ),
-                            ),
-                            Text(
-                              "300",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline1!
-                                  .merge(const TextStyle(fontSize: 14)),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 10),
                       ElevatedButton.icon(
                         style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
+                          backgroundColor: WidgetStateProperty.all(
                             const Color(0xFF495057),
                           ),
-                          foregroundColor: MaterialStateProperty.all(
+                          foregroundColor: WidgetStateProperty.all(
                             const Color(0xFFEDF2FB),
                           ),
                         ),
-                        onPressed: () {
-                          controller.setTrading_trade();
-                          Get.back();
+                        onPressed: () => {
+                          controller.setTrading_trade().then((value) {
+                            Get.back();
+                          })
                         },
                         icon: const Icon(Icons.mode_edit_outline_rounded),
                         label: const Text("Confirm"),
@@ -625,8 +561,8 @@ class TradePage_TradeSetting_Leverage extends StatelessWidget {
 
 class TradePage_TradeSetting_TradingPair extends StatelessWidget {
   const TradePage_TradeSetting_TradingPair({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -649,7 +585,7 @@ class TradePage_TradeSetting_TradingPair extends StatelessWidget {
                           "Edit Trading Pair",
                           style: Theme.of(context)
                               .textTheme
-                              .headline1!
+                              .displayLarge!
                               .merge(const TextStyle(fontSize: 14)),
                         ),
                       ),
@@ -666,20 +602,20 @@ class TradePage_TradeSetting_TradingPair extends StatelessWidget {
                           keyboardType: TextInputType.text,
                           decoration: InputDecoration.collapsed(
                             hintText: "type your budget",
-                            hintStyle: Theme.of(context).textTheme.headline1,
+                            hintStyle: Theme.of(context).textTheme.displayLarge,
                           ),
                           textAlign: TextAlign.start,
                           textAlignVertical: TextAlignVertical.center,
-                          style: Theme.of(context).textTheme.headline2,
+                          style: Theme.of(context).textTheme.displayMedium,
                         ),
                       ),
                       const SizedBox(height: 10),
                       ElevatedButton.icon(
                         style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                              const Color(0xFF495057)),
-                          foregroundColor: MaterialStateProperty.all(
-                              const Color(0xFFEDF2FB)),
+                          backgroundColor:
+                              WidgetStateProperty.all(const Color(0xFF495057)),
+                          foregroundColor:
+                              WidgetStateProperty.all(const Color(0xFFEDF2FB)),
                         ),
                         onPressed: () => controller.setTradingPair_trade(),
                         icon: const Icon(Icons.mode_edit_outline_rounded),
@@ -714,8 +650,8 @@ class TradePage_TradeSetting_TradingPair extends StatelessWidget {
 
 class TradePage_CapitalCurve extends StatelessWidget {
   const TradePage_CapitalCurve({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -757,8 +693,8 @@ class TradePage_CapitalCurve extends StatelessWidget {
 
 class TradePage_Budget extends StatelessWidget {
   const TradePage_Budget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -797,7 +733,7 @@ class TradePage_Budget extends StatelessWidget {
                     child: Text(value),
                   );
                 }).toList(),
-                style: Theme.of(context).textTheme.headline2,
+                style: Theme.of(context).textTheme.displayMedium,
                 dropdownColor: const Color(0xFF343A40),
               ),
             ),
@@ -843,8 +779,8 @@ class TradePage_Budget extends StatelessWidget {
 
 class TradePage_TradePercentage extends StatelessWidget {
   const TradePage_TradePercentage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -883,7 +819,7 @@ class TradePage_TradePercentage extends StatelessWidget {
                     child: Text(value),
                   );
                 }).toList(),
-                style: Theme.of(context).textTheme.headline2,
+                style: Theme.of(context).textTheme.displayMedium,
                 dropdownColor: const Color(0xFF343A40),
               ),
             ),
@@ -899,11 +835,11 @@ class TradePage_TradePercentage extends StatelessWidget {
               hintText: "profit or loss trade amount",
               hintStyle: Theme.of(context)
                   .textTheme
-                  .headline2!
+                  .displayMedium!
                   .merge(const TextStyle(fontSize: 14)),
             ),
             textAlign: TextAlign.start,
-            style: Theme.of(context).textTheme.headline2!.merge(
+            style: Theme.of(context).textTheme.displayMedium!.merge(
                   const TextStyle(
                     fontSize: 24,
                   ),
@@ -924,8 +860,8 @@ class TradePage_TradePercentage extends StatelessWidget {
 
 class TradePage_Confirmation extends StatelessWidget {
   const TradePage_Confirmation({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -936,7 +872,7 @@ class TradePage_Confirmation extends StatelessWidget {
         textAlign: TextAlign.justify,
         style: Theme.of(context)
             .textTheme
-            .headline1!
+            .displayLarge!
             .merge(const TextStyle(fontSize: 10)),
       ),
     );
@@ -945,8 +881,8 @@ class TradePage_Confirmation extends StatelessWidget {
 
 class TradePage_TradeButton extends StatelessWidget {
   const TradePage_TradeButton({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -957,10 +893,8 @@ class TradePage_TradeButton extends StatelessWidget {
         Expanded(
           child: ElevatedButton(
             style: ButtonStyle(
-              backgroundColor:
-                  MaterialStateProperty.all(const Color(0xFF495057)),
-              foregroundColor:
-                  MaterialStateProperty.all(const Color(0xFFEDF2FB)),
+              backgroundColor: WidgetStateProperty.all(const Color(0xFF495057)),
+              foregroundColor: WidgetStateProperty.all(const Color(0xFFEDF2FB)),
             ),
             onPressed: () {
               controller.setTrading_trade();
@@ -975,8 +909,8 @@ class TradePage_TradeButton extends StatelessWidget {
         Expanded(
           child: ElevatedButton(
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.red),
-              foregroundColor: MaterialStateProperty.all(
+              backgroundColor: WidgetStateProperty.all(Colors.red),
+              foregroundColor: WidgetStateProperty.all(
                 const Color(0xFFEDF2FB),
               ),
             ),
@@ -991,8 +925,8 @@ class TradePage_TradeButton extends StatelessWidget {
 
 class TradePage_History extends StatelessWidget {
   const TradePage_History({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -1005,7 +939,7 @@ class TradePage_History extends StatelessWidget {
           textAlign: TextAlign.center,
           style: Theme.of(context)
               .textTheme
-              .headline1!
+              .displayLarge!
               .merge(const TextStyle(fontSize: 14)),
         ),
         const SizedBox(height: 10),
@@ -1014,7 +948,7 @@ class TradePage_History extends StatelessWidget {
               ? Center(
                   child: Text(
                     "No trade yet",
-                    style: Theme.of(context).textTheme.headline1,
+                    style: Theme.of(context).textTheme.displayLarge,
                   ),
                 )
               : SingleChildScrollView(
@@ -1022,7 +956,7 @@ class TradePage_History extends StatelessWidget {
                   child: DataTable(
                     headingTextStyle: Theme.of(context)
                         .textTheme
-                        .headline1!
+                        .displayLarge!
                         .merge(const TextStyle(fontSize: 14)),
                     columns: const [
                       DataColumn(
@@ -1061,8 +995,9 @@ class TradePage_History extends StatelessWidget {
                                   children: [
                                     Text(
                                       "${MoneyFormatter(amount: element.budget).output.compactNonSymbol} ${controller.currency_desc.value}",
-                                      style:
-                                          Theme.of(context).textTheme.headline2,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .displayMedium,
                                     ),
                                     const SizedBox(width: 5),
                                     Container(
@@ -1077,7 +1012,7 @@ class TradePage_History extends StatelessWidget {
                                         "${element.budgetPerccentage.toStringAsFixed(2)}%",
                                         style: Theme.of(context)
                                             .textTheme
-                                            .headline2!
+                                            .displayMedium!
                                             .merge(
                                                 const TextStyle(fontSize: 12)),
                                       ),
@@ -1093,10 +1028,10 @@ class TradePage_History extends StatelessWidget {
                                       style: element.tradeNominal > 0
                                           ? Theme.of(context)
                                               .textTheme
-                                              .headline3
+                                              .displaySmall
                                           : Theme.of(context)
                                               .textTheme
-                                              .headline4,
+                                              .headlineLarge,
                                     ),
                                     const SizedBox(width: 5),
                                     Container(
@@ -1123,12 +1058,12 @@ class TradePage_History extends StatelessWidget {
                                             style: element.tradePercentage > 0
                                                 ? Theme.of(context)
                                                     .textTheme
-                                                    .headline3!
+                                                    .displaySmall!
                                                     .merge(const TextStyle(
                                                         fontSize: 12))
                                                 : Theme.of(context)
                                                     .textTheme
-                                                    .headline4!
+                                                    .headlineLarge!
                                                     .merge(const TextStyle(
                                                         fontSize: 12)),
                                           ),
@@ -1143,8 +1078,9 @@ class TradePage_History extends StatelessWidget {
                                   children: [
                                     Text(
                                       "${MoneyFormatter(amount: element.feeNominal).output.compactNonSymbol} ${controller.currency_desc.value}",
-                                      style:
-                                          Theme.of(context).textTheme.headline4,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headlineLarge,
                                     ),
                                     const SizedBox(width: 5),
                                     Container(
@@ -1157,7 +1093,7 @@ class TradePage_History extends StatelessWidget {
                                         "- ${element.feePercentage.toStringAsFixed(2)}%",
                                         style: Theme.of(context)
                                             .textTheme
-                                            .headline4!
+                                            .headlineLarge!
                                             .merge(
                                                 const TextStyle(fontSize: 12)),
                                       ),
@@ -1168,21 +1104,25 @@ class TradePage_History extends StatelessWidget {
                               DataCell(
                                 Text(
                                   "x${element.leverage}",
-                                  style: Theme.of(context).textTheme.headline2,
+                                  style:
+                                      Theme.of(context).textTheme.displayMedium,
                                 ),
                               ),
                               DataCell(
                                 Text(
                                   "${MoneyFormatter(amount: element.changes).output.compactNonSymbol} ${controller.currency_desc}",
                                   style: element.changes > 0
-                                      ? Theme.of(context).textTheme.headline3
-                                      : Theme.of(context).textTheme.headline4,
+                                      ? Theme.of(context).textTheme.displaySmall
+                                      : Theme.of(context)
+                                          .textTheme
+                                          .headlineLarge,
                                 ),
                               ),
                               DataCell(
                                 Text(
                                   "${MoneyFormatter(amount: element.cap).output.compactNonSymbol} ${controller.currency_desc}",
-                                  style: Theme.of(context).textTheme.headline2,
+                                  style:
+                                      Theme.of(context).textTheme.displayMedium,
                                 ),
                               ),
                             ],

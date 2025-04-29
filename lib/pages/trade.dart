@@ -12,9 +12,9 @@ import 'package:trading_strategy_tester_app/pages/trade/trading.dart';
 class TradingPage extends StatelessWidget {
   int index;
   TradingPage({
-    Key? key,
+    super.key,
     required this.index,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class TradingPage extends StatelessWidget {
                           ],
                         ),
                         Container(
-                          margin: EdgeInsets.all(10),
+                          margin: const EdgeInsets.all(10),
                           child: Align(
                             alignment: Alignment.bottomRight,
                             child: Material(

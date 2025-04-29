@@ -12,28 +12,28 @@ class AppTheme {
       foregroundColor: Color(0xFFADB5BD),
     ),
     textTheme: TextTheme(
-      headline1: GoogleFonts.poppins(
+      displayLarge: GoogleFonts.poppins(
         color: const Color(0xFFADB5BD),
         fontSize: 18,
       ),
-      headline2: GoogleFonts.poppins(
+      displayMedium: GoogleFonts.poppins(
         color: const Color(0xFFEDF2FB),
         fontSize: 18,
       ),
-      headline3: GoogleFonts.poppins(
+      displaySmall: GoogleFonts.poppins(
         color: const Color(0xFF80FFDB),
         fontSize: 18,
       ),
-      headline4: GoogleFonts.poppins(
+      headlineLarge: GoogleFonts.poppins(
         color: const Color(0xFFF72585),
         fontSize: 18,
       ),
-      headline5: GoogleFonts.poppins(
+      headlineMedium: GoogleFonts.poppins(
         color: const Color(0xFF80FFDB),
         fontSize: 24,
         fontWeight: FontWeight.bold,
       ),
-      headline6: GoogleFonts.poppins(
+      headlineSmall: GoogleFonts.poppins(
         color: const Color(0xFFF72585),
         fontSize: 24,
         fontWeight: FontWeight.bold,

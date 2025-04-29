@@ -120,8 +120,8 @@ class AllPageController extends GetxController {
         currency: currency_desc.value,
         timeframe: timeframeValue_trade.value,
         tradingPair: tradingPair_trade.value,
-        indicator: strategyIndicatorList.value,
-        trade: tradingList.value,
+        indicator: strategyIndicatorList,
+        trade: tradingList,
       );
       budgetController_trade.clear();
       tradePercentageController_trade.clear();
@@ -376,10 +376,12 @@ class AllPageController extends GetxController {
   Future getTimeframe_trade() async {
     try {
       for (var i = 0; i < timeframeWidget_trade.length; i++) {
-        if (timeframeWidget_trade[i] == timeframeValue_trade.value)
+        final textValue = (timeframeWidget_trade[i]).data ?? '';
+        if (textValue == timeframeValue_trade.value) {
           timeframeIsSelected_trade[i] = true;
-        else
+        } else {
           timeframeIsSelected_trade[i] = false;
+        }
       }
     } catch (e) {
       debugPrint(e.toString());
@@ -789,6 +791,10 @@ class AllPageController extends GetxController {
         runUpSequance.value = [];
         maxRunUpPercentage.value = 0.0;
         List tempList = [];
+        if (tradingList.isEmpty) {
+          // No data, skip run up calculation
+          return runUpSequance;
+        }
         double getLast = tradingList.last.cap;
         for (var i = 0; i < tradingList.length; i++) {
           if (i < 1) {
@@ -818,7 +824,7 @@ class AllPageController extends GetxController {
             }
           }
         }
-        return runUpSequance.value;
+        return runUpSequance;
       }).then((value) {
         Future.sync(() {
           for (var i = 0; i < value.length; i++) {
@@ -830,7 +836,7 @@ class AllPageController extends GetxController {
                       100,
             );
           }
-          return runUpSequance.value;
+          return runUpSequance;
         }).then((value) => maxRunUpPercentage.value =
             runUpSequance.maxOf((element) => element.maxSequancePercentage));
       });
@@ -839,6 +845,10 @@ class AllPageController extends GetxController {
         drawDownSequance.value = [];
         maxDrawdownPercentage.value = 0.0;
         List tempList = [];
+        if (tradingList.isEmpty) {
+          // No data, skip drawdown calculation
+          return drawDownSequance;
+        }
         double getLast = tradingList.last.cap;
         for (var i = 0; i < tradingList.length; i++) {
           if (i < 1) {
@@ -868,7 +878,7 @@ class AllPageController extends GetxController {
             }
           }
         }
-        return drawDownSequance.value;
+        return drawDownSequance;
       }).then((value) {
         Future.sync(() {
           for (var i = 0; i < value.length; i++) {
@@ -892,14 +902,16 @@ class AllPageController extends GetxController {
 
   // ADS ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   final BannerAd listBanner = BannerAd(
-    adUnitId: BannerAd.testAdUnitId,
+    adUnitId: 'ca-app-pub-3089671223759195/7678018118',
+    // adUnitId: 'ca-app-pub-3940256099942544/6300978111',
     size: AdSize.banner,
     request: const AdRequest(),
     listener: const BannerAdListener(),
   );
 
   final BannerAd tradeBanner = BannerAd(
-    adUnitId: BannerAd.testAdUnitId,
+    adUnitId: "ca-app-pub-3089671223759195/5051854770",
+    // adUnitId: 'ca-app-pub-3940256099942544/6300978111',
     size: AdSize.banner,
     request: const AdRequest(),
     listener: const BannerAdListener(),
@@ -911,7 +923,8 @@ class AllPageController extends GetxController {
   Future loadInterstitialAd() async {
     try {
       InterstitialAd.load(
-        adUnitId: InterstitialAd.testAdUnitId,
+        adUnitId: 'ca-app-pub-3089671223759195/2425691436',
+        // adUnitId: 'ca-app-pub-3940256099942544/1033173712',
         request: const AdRequest(),
         adLoadCallback: InterstitialAdLoadCallback(
           onAdLoaded: (InterstitialAd ad) {
@@ -955,10 +968,10 @@ class AllPageController extends GetxController {
 
   Future<void> getSavedStrategy() async {
     try {
-      List? storedPw = GetStorage().read<List>('strategies');
-      if (!storedPw.isNull) {
+      List storedPw = GetStorage().read<List>('strategies') ?? [];
+      if (storedPw.isNotEmpty) {
         strategyList.value =
-            storedPw!.map((e) => StrategyListModel.fromJson(e)).toList();
+            storedPw.map((e) => StrategyListModel.fromJson(e)).toList();
       }
 
       debugPrint("Get saved strategy ${strategyList.length}");

@@ -9,8 +9,8 @@ import 'package:trading_strategy_tester_app/controller/controller.dart';
 
 class PerformancePage extends StatelessWidget {
   const PerformancePage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class PerformancePage extends StatelessWidget {
                     "Strategy Performance",
                     style: Theme.of(context)
                         .textTheme
-                        .headline1!
+                        .displayLarge!
                         .merge(const TextStyle(fontSize: 14)),
                   ),
                 ),
@@ -63,9 +63,9 @@ class PerformancePage extends StatelessWidget {
 class PerformancePage_FinalCap extends StatelessWidget {
   // int index;
   const PerformancePage_FinalCap({
-    Key? key,
+    super.key,
     // required this.index,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -85,10 +85,10 @@ class PerformancePage_FinalCap extends StatelessWidget {
               Text(
                 "${MoneyFormatter(amount: controller.finalCap.value).output.compactNonSymbol} ${controller.currency_desc.value}",
                 style: controller.finalCap.value > controller.initCap_desc.value
-                    ? Theme.of(context).textTheme.headline3!.merge(
+                    ? Theme.of(context).textTheme.displaySmall!.merge(
                         const TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold))
-                    : Theme.of(context).textTheme.headline4!.merge(
+                    : Theme.of(context).textTheme.headlineLarge!.merge(
                         const TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold)),
               ),
@@ -96,7 +96,7 @@ class PerformancePage_FinalCap extends StatelessWidget {
                 "Final Capital",
                 style: Theme.of(context)
                     .textTheme
-                    .headline1!
+                    .displayLarge!
                     .merge(const TextStyle(fontSize: 14)),
               ),
             ],
@@ -120,10 +120,10 @@ class PerformancePage_FinalCap extends StatelessWidget {
                   Text(
                     "${(controller.tradingList.isNotEmpty ? MoneyFormatter(amount: controller.gain.value).output.compactNonSymbol : 0)}%",
                     style: controller.gain.value > 0
-                        ? Theme.of(context).textTheme.headline3!.merge(
+                        ? Theme.of(context).textTheme.displaySmall!.merge(
                             const TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 20))
-                        : Theme.of(context).textTheme.headline4!.merge(
+                        : Theme.of(context).textTheme.headlineLarge!.merge(
                             const TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 20)),
                   ),
@@ -133,7 +133,7 @@ class PerformancePage_FinalCap extends StatelessWidget {
                 "Gain Percentage",
                 style: Theme.of(context)
                     .textTheme
-                    .headline1!
+                    .displayLarge!
                     .merge(const TextStyle(fontSize: 14)),
               ),
             ],
@@ -143,14 +143,14 @@ class PerformancePage_FinalCap extends StatelessWidget {
             children: <Widget>[
               Text(
                 "${MoneyFormatter(amount: controller.totalVolume.value).output.compactNonSymbol} ${controller.currency_desc.value}",
-                style: Theme.of(context).textTheme.headline2!.merge(
+                style: Theme.of(context).textTheme.displayMedium!.merge(
                     const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               ),
               Text(
                 "Total Volume",
                 style: Theme.of(context)
                     .textTheme
-                    .headline1!
+                    .displayLarge!
                     .merge(const TextStyle(fontSize: 14)),
               ),
             ],
@@ -164,9 +164,9 @@ class PerformancePage_FinalCap extends StatelessWidget {
 class PerformancePage_OHLC extends StatelessWidget {
   // int index;
   const PerformancePage_OHLC({
-    Key? key,
+    super.key,
     // required this.index,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -184,7 +184,7 @@ class PerformancePage_OHLC extends StatelessWidget {
             controller.tradingPair_trade.value.toUpperCase(),
             style: Theme.of(context)
                 .textTheme
-                .headline2!
+                .displayMedium!
                 .merge(const TextStyle(fontSize: 14)),
           ),
           Row(
@@ -194,7 +194,7 @@ class PerformancePage_OHLC extends StatelessWidget {
                 "o ",
                 style: Theme.of(context)
                     .textTheme
-                    .headline1!
+                    .displayLarge!
                     .merge(const TextStyle(fontSize: 14)),
               ),
               Text(
@@ -203,7 +203,7 @@ class PerformancePage_OHLC extends StatelessWidget {
                     .compactNonSymbol,
                 style: Theme.of(context)
                     .textTheme
-                    .headline2!
+                    .displayMedium!
                     .merge(const TextStyle(fontSize: 14)),
               ),
               const SizedBox(width: 10),
@@ -211,7 +211,7 @@ class PerformancePage_OHLC extends StatelessWidget {
                 "h ",
                 style: Theme.of(context)
                     .textTheme
-                    .headline1!
+                    .displayLarge!
                     .merge(const TextStyle(fontSize: 14)),
               ),
               Text(
@@ -220,7 +220,7 @@ class PerformancePage_OHLC extends StatelessWidget {
                     .compactNonSymbol,
                 style: Theme.of(context)
                     .textTheme
-                    .headline3!
+                    .displaySmall!
                     .merge(const TextStyle(fontSize: 14)),
               ),
               const SizedBox(width: 10),
@@ -228,7 +228,7 @@ class PerformancePage_OHLC extends StatelessWidget {
                 "l ",
                 style: Theme.of(context)
                     .textTheme
-                    .headline1!
+                    .displayLarge!
                     .merge(const TextStyle(fontSize: 14)),
               ),
               Text(
@@ -237,7 +237,7 @@ class PerformancePage_OHLC extends StatelessWidget {
                     .compactNonSymbol,
                 style: Theme.of(context)
                     .textTheme
-                    .headline4!
+                    .headlineLarge!
                     .merge(const TextStyle(fontSize: 14)),
               ),
               const SizedBox(width: 10),
@@ -245,7 +245,7 @@ class PerformancePage_OHLC extends StatelessWidget {
                 "c ",
                 style: Theme.of(context)
                     .textTheme
-                    .headline1!
+                    .displayLarge!
                     .merge(const TextStyle(fontSize: 14)),
               ),
               Text(
@@ -255,11 +255,11 @@ class PerformancePage_OHLC extends StatelessWidget {
                 style: controller.finalCap.value > controller.initCap_desc.value
                     ? Theme.of(context)
                         .textTheme
-                        .headline3!
+                        .displaySmall!
                         .merge(const TextStyle(fontSize: 14))
                     : Theme.of(context)
                         .textTheme
-                        .headline4!
+                        .headlineLarge!
                         .merge(const TextStyle(fontSize: 14)),
               ),
             ],
@@ -272,8 +272,8 @@ class PerformancePage_OHLC extends StatelessWidget {
 
 class PerformancePage_CapitalCurve extends StatelessWidget {
   const PerformancePage_CapitalCurve({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -290,7 +290,7 @@ class PerformancePage_CapitalCurve extends StatelessWidget {
             "Capital Curve",
             style: Theme.of(context)
                 .textTheme
-                .headline1!
+                .displayLarge!
                 .merge(const TextStyle(fontSize: 14)),
           ),
           const SizedBox(height: 10),
@@ -301,8 +301,8 @@ class PerformancePage_CapitalCurve extends StatelessWidget {
               () => controller.tradingList.isNotEmpty
                   ? Obx(
                       () => LineChart(
-                        swapAnimationDuration:
-                            const Duration(milliseconds: 500),
+                        // swapAnimationDuration:
+                        //     const Duration(milliseconds: 500),
                         LineChartData(
                           minX: 0,
                           maxX: controller.tradingList.length.toDouble(),
@@ -362,7 +362,7 @@ class PerformancePage_CapitalCurve extends StatelessWidget {
                     )
                   : Text(
                       "No trade yet",
-                      style: Theme.of(context).textTheme.headline1,
+                      style: Theme.of(context).textTheme.displayLarge,
                     ),
             ),
           ),
@@ -375,9 +375,9 @@ class PerformancePage_CapitalCurve extends StatelessWidget {
 class PerformancePage_ProfitLoss extends StatelessWidget {
   // int index;
   const PerformancePage_ProfitLoss({
-    Key? key,
+    super.key,
     // required this.index,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -394,7 +394,7 @@ class PerformancePage_ProfitLoss extends StatelessWidget {
             "Profit Calculation",
             style: Theme.of(context)
                 .textTheme
-                .headline1!
+                .displayLarge!
                 .merge(const TextStyle(fontSize: 14)),
           ),
           const SizedBox(height: 5),
@@ -405,14 +405,14 @@ class PerformancePage_ProfitLoss extends StatelessWidget {
                 "Gross profit",
                 style: Theme.of(context)
                     .textTheme
-                    .headline1!
+                    .displayLarge!
                     .merge(const TextStyle(fontSize: 14)),
               ),
               Text(
                 "${MoneyFormatter(amount: controller.grossProfit.value).output.compactNonSymbol} ${controller.currency_desc.value}",
                 style: Theme.of(context)
                     .textTheme
-                    .headline3!
+                    .displaySmall!
                     .merge(const TextStyle(fontWeight: FontWeight.bold)),
               ),
             ],
@@ -425,14 +425,14 @@ class PerformancePage_ProfitLoss extends StatelessWidget {
                 "Gross loss",
                 style: Theme.of(context)
                     .textTheme
-                    .headline1!
+                    .displayLarge!
                     .merge(const TextStyle(fontSize: 14)),
               ),
               Text(
                 "${MoneyFormatter(amount: -controller.grossLoss.value).output.compactNonSymbol} ${controller.currency_desc.value}",
                 style: Theme.of(context)
                     .textTheme
-                    .headline4!
+                    .headlineLarge!
                     .merge(const TextStyle(fontWeight: FontWeight.bold)),
               ),
             ],
@@ -445,14 +445,14 @@ class PerformancePage_ProfitLoss extends StatelessWidget {
                 "Total fee (avg ${MoneyFormatter(amount: controller.averageFee.value).output.compactNonSymbol} ${controller.currency_desc.value})",
                 style: Theme.of(context)
                     .textTheme
-                    .headline1!
+                    .displayLarge!
                     .merge(const TextStyle(fontSize: 14)),
               ),
               Text(
                 "${MoneyFormatter(amount: controller.totalFee.value).output.compactNonSymbol} ${controller.currency_desc}",
                 style: Theme.of(context)
                     .textTheme
-                    .headline4!
+                    .headlineLarge!
                     .merge(const TextStyle(fontWeight: FontWeight.bold)),
               ),
             ],
@@ -468,7 +468,7 @@ class PerformancePage_ProfitLoss extends StatelessWidget {
                 "Neto profit",
                 style: Theme.of(context)
                     .textTheme
-                    .headline1!
+                    .displayLarge!
                     .merge(const TextStyle(fontSize: 14)),
               ),
               Text(
@@ -476,11 +476,11 @@ class PerformancePage_ProfitLoss extends StatelessWidget {
                 style: controller.netoProfit.value > 0
                     ? Theme.of(context)
                         .textTheme
-                        .headline3!
+                        .displaySmall!
                         .merge(const TextStyle(fontWeight: FontWeight.bold))
                     : Theme.of(context)
                         .textTheme
-                        .headline4!
+                        .headlineLarge!
                         .merge(const TextStyle(fontWeight: FontWeight.bold)),
               ),
             ],
@@ -494,9 +494,9 @@ class PerformancePage_ProfitLoss extends StatelessWidget {
 class PerformancePage_Winrate extends StatelessWidget {
   // int index;
   const PerformancePage_Winrate({
-    Key? key,
+    super.key,
     // required this.index,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -516,21 +516,21 @@ class PerformancePage_Winrate extends StatelessWidget {
                 "Win Trade",
                 style: Theme.of(context)
                     .textTheme
-                    .headline1!
+                    .displayLarge!
                     .merge(const TextStyle(fontSize: 14)),
               ),
               Text(
                 "Profit Factor",
                 style: Theme.of(context)
                     .textTheme
-                    .headline1!
+                    .displayLarge!
                     .merge(const TextStyle(fontSize: 14)),
               ),
               Text(
                 "Lose Trade",
                 style: Theme.of(context)
                     .textTheme
-                    .headline1!
+                    .displayLarge!
                     .merge(const TextStyle(fontSize: 14)),
               ),
             ],
@@ -540,17 +540,17 @@ class PerformancePage_Winrate extends StatelessWidget {
             children: <Widget>[
               Text(
                 "${controller.winrate.value.toStringAsPrecision(4)}%",
-                style: Theme.of(context).textTheme.headline3,
+                style: Theme.of(context).textTheme.displaySmall,
               ),
               Text(
                 controller.profitFactor.value.toStringAsPrecision(2),
                 style: controller.profitFactor.value > 0
-                    ? Theme.of(context).textTheme.headline3
-                    : Theme.of(context).textTheme.headline4,
+                    ? Theme.of(context).textTheme.displaySmall
+                    : Theme.of(context).textTheme.headlineLarge,
               ),
               Text(
                 "${(100 - controller.winrate.value).toStringAsPrecision(4)}%",
-                style: Theme.of(context).textTheme.headline4,
+                style: Theme.of(context).textTheme.headlineLarge,
               ),
             ],
           ),
@@ -582,7 +582,7 @@ class PerformancePage_Winrate extends StatelessWidget {
             children: <Widget>[
               Text(
                 controller.winTrade.value.toString(),
-                style: Theme.of(context).textTheme.headline3,
+                style: Theme.of(context).textTheme.displaySmall,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -592,18 +592,18 @@ class PerformancePage_Winrate extends StatelessWidget {
                     "Total Trade ",
                     style: Theme.of(context)
                         .textTheme
-                        .headline1!
+                        .displayLarge!
                         .merge(const TextStyle(fontSize: 14)),
                   ),
                   Text(
                     controller.totalTrade.value.toString(),
-                    style: Theme.of(context).textTheme.headline2,
+                    style: Theme.of(context).textTheme.displayMedium,
                   ),
                 ],
               ),
               Text(
                 controller.loseTrade.value.toString(),
-                style: Theme.of(context).textTheme.headline4,
+                style: Theme.of(context).textTheme.headlineLarge,
               ),
             ],
           )
@@ -614,7 +614,7 @@ class PerformancePage_Winrate extends StatelessWidget {
 }
 
 class PerformanceTrade_Factor extends StatelessWidget {
-  const PerformanceTrade_Factor({Key? key}) : super(key: key);
+  const PerformanceTrade_Factor({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -632,7 +632,7 @@ class PerformanceTrade_Factor extends StatelessWidget {
             textAlign: TextAlign.left,
             style: Theme.of(context)
                 .textTheme
-                .headline1!
+                .displayLarge!
                 .merge(const TextStyle(fontSize: 14)),
           ),
           const SizedBox(height: 5),
@@ -651,7 +651,7 @@ class PerformanceTrade_Factor extends StatelessWidget {
                       textAlign: TextAlign.left,
                       style: Theme.of(context)
                           .textTheme
-                          .headline1!
+                          .displayLarge!
                           .merge(const TextStyle(fontSize: 14)),
                     ),
                   ),
@@ -662,7 +662,7 @@ class PerformanceTrade_Factor extends StatelessWidget {
                       textAlign: TextAlign.right,
                       style: Theme.of(context)
                           .textTheme
-                          .headline1!
+                          .displayLarge!
                           .merge(const TextStyle(fontSize: 14)),
                     ),
                   ),
@@ -673,7 +673,7 @@ class PerformanceTrade_Factor extends StatelessWidget {
                       textAlign: TextAlign.right,
                       style: Theme.of(context)
                           .textTheme
-                          .headline1!
+                          .displayLarge!
                           .merge(const TextStyle(fontSize: 14)),
                     ),
                   ),
@@ -691,7 +691,7 @@ class PerformanceTrade_Factor extends StatelessWidget {
                         softWrap: false,
                         style: Theme.of(context)
                             .textTheme
-                            .headline1!
+                            .displayLarge!
                             .merge(const TextStyle(fontSize: 14)),
                       ),
                     ),
@@ -701,7 +701,7 @@ class PerformanceTrade_Factor extends StatelessWidget {
                     child: Text(
                       "${controller.consecutiveWin.value}",
                       textAlign: TextAlign.right,
-                      style: Theme.of(context).textTheme.headline3,
+                      style: Theme.of(context).textTheme.displaySmall,
                     ),
                   ),
                   Padding(
@@ -709,7 +709,7 @@ class PerformanceTrade_Factor extends StatelessWidget {
                     child: Text(
                       "${controller.consecutiveLoss.value}",
                       textAlign: TextAlign.right,
-                      style: Theme.of(context).textTheme.headline4,
+                      style: Theme.of(context).textTheme.headlineLarge,
                     ),
                   ),
                 ],
@@ -726,7 +726,7 @@ class PerformanceTrade_Factor extends StatelessWidget {
                         softWrap: false,
                         style: Theme.of(context)
                             .textTheme
-                            .headline1!
+                            .displayLarge!
                             .merge(const TextStyle(fontSize: 14)),
                       ),
                     ),
@@ -736,7 +736,7 @@ class PerformanceTrade_Factor extends StatelessWidget {
                     child: Text(
                       "${MoneyFormatter(amount: controller.largestWinNominal.value).output.compactNonSymbol} ${controller.currency_desc.value}",
                       textAlign: TextAlign.right,
-                      style: Theme.of(context).textTheme.headline3,
+                      style: Theme.of(context).textTheme.displaySmall,
                     ),
                   ),
                   Padding(
@@ -744,7 +744,7 @@ class PerformanceTrade_Factor extends StatelessWidget {
                     child: Text(
                       "${MoneyFormatter(amount: -controller.largestLossNominal.value).output.compactNonSymbol} ${controller.currency_desc.value}",
                       textAlign: TextAlign.right,
-                      style: Theme.of(context).textTheme.headline4,
+                      style: Theme.of(context).textTheme.headlineLarge,
                     ),
                   ),
                 ],
@@ -761,7 +761,7 @@ class PerformanceTrade_Factor extends StatelessWidget {
                         softWrap: false,
                         style: Theme.of(context)
                             .textTheme
-                            .headline1!
+                            .displayLarge!
                             .merge(const TextStyle(fontSize: 14)),
                       ),
                     ),
@@ -771,7 +771,7 @@ class PerformanceTrade_Factor extends StatelessWidget {
                     child: Text(
                       "${MoneyFormatter(amount: controller.largestWinPercentage.value).output.compactNonSymbol}%",
                       textAlign: TextAlign.right,
-                      style: Theme.of(context).textTheme.headline3,
+                      style: Theme.of(context).textTheme.displaySmall,
                     ),
                   ),
                   Padding(
@@ -779,7 +779,7 @@ class PerformanceTrade_Factor extends StatelessWidget {
                     child: Text(
                       "${MoneyFormatter(amount: -controller.largestLossPercentage.value).output.compactNonSymbol}%",
                       textAlign: TextAlign.right,
-                      style: Theme.of(context).textTheme.headline4,
+                      style: Theme.of(context).textTheme.headlineLarge,
                     ),
                   ),
                 ],
@@ -796,7 +796,7 @@ class PerformanceTrade_Factor extends StatelessWidget {
                         softWrap: false,
                         style: Theme.of(context)
                             .textTheme
-                            .headline1!
+                            .displayLarge!
                             .merge(const TextStyle(fontSize: 14)),
                       ),
                     ),
@@ -806,7 +806,7 @@ class PerformanceTrade_Factor extends StatelessWidget {
                     child: Text(
                       "${MoneyFormatter(amount: controller.averageWinNominal.value).output.compactNonSymbol} ${controller.currency_desc.value}",
                       textAlign: TextAlign.right,
-                      style: Theme.of(context).textTheme.headline3,
+                      style: Theme.of(context).textTheme.displaySmall,
                     ),
                   ),
                   Padding(
@@ -814,7 +814,7 @@ class PerformanceTrade_Factor extends StatelessWidget {
                     child: Text(
                       "${MoneyFormatter(amount: -controller.averageLossNominal.value).output.compactNonSymbol} ${controller.currency_desc.value}",
                       textAlign: TextAlign.right,
-                      style: Theme.of(context).textTheme.headline4,
+                      style: Theme.of(context).textTheme.headlineLarge,
                     ),
                   ),
                 ],
@@ -831,7 +831,7 @@ class PerformanceTrade_Factor extends StatelessWidget {
                         softWrap: false,
                         style: Theme.of(context)
                             .textTheme
-                            .headline1!
+                            .displayLarge!
                             .merge(const TextStyle(fontSize: 14)),
                       ),
                     ),
@@ -841,7 +841,7 @@ class PerformanceTrade_Factor extends StatelessWidget {
                     child: Text(
                       "${MoneyFormatter(amount: controller.averageWinPercentage.value).output.compactNonSymbol}%",
                       textAlign: TextAlign.right,
-                      style: Theme.of(context).textTheme.headline3,
+                      style: Theme.of(context).textTheme.displaySmall,
                     ),
                   ),
                   Padding(
@@ -849,7 +849,7 @@ class PerformanceTrade_Factor extends StatelessWidget {
                     child: Text(
                       "${MoneyFormatter(amount: -controller.averageLossPercentage.value).output.compactNonSymbol}%",
                       textAlign: TextAlign.right,
-                      style: Theme.of(context).textTheme.headline4,
+                      style: Theme.of(context).textTheme.headlineLarge,
                     ),
                   ),
                 ],
@@ -863,7 +863,7 @@ class PerformanceTrade_Factor extends StatelessWidget {
 }
 
 class PerformancePage_Max extends StatelessWidget {
-  const PerformancePage_Max({Key? key}) : super(key: key);
+  const PerformancePage_Max({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -880,7 +880,7 @@ class PerformancePage_Max extends StatelessWidget {
             "Max Posibility",
             style: Theme.of(context)
                 .textTheme
-                .headline1!
+                .displayLarge!
                 .merge(const TextStyle(fontSize: 14)),
           ),
           const SizedBox(height: 5),
@@ -900,7 +900,7 @@ class PerformancePage_Max extends StatelessWidget {
                       const SizedBox(width: 5),
                       Text(
                         "${controller.maxDrawdownPercentage.value.toStringAsPrecision(4)}%",
-                        style: Theme.of(context).textTheme.headline4!.merge(
+                        style: Theme.of(context).textTheme.headlineLarge!.merge(
                             const TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold)),
                       ),
@@ -910,7 +910,7 @@ class PerformancePage_Max extends StatelessWidget {
                     "Max Drawdown",
                     style: Theme.of(context)
                         .textTheme
-                        .headline1!
+                        .displayLarge!
                         .merge(const TextStyle(fontSize: 14)),
                   ),
                 ],
@@ -922,7 +922,7 @@ class PerformancePage_Max extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         "${controller.maxRunUpPercentage.value.toStringAsPrecision(4)}%",
-                        style: Theme.of(context).textTheme.headline3!.merge(
+                        style: Theme.of(context).textTheme.displaySmall!.merge(
                             const TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold)),
                       ),
@@ -938,7 +938,7 @@ class PerformancePage_Max extends StatelessWidget {
                     "Max RunUp",
                     style: Theme.of(context)
                         .textTheme
-                        .headline1!
+                        .displayLarge!
                         .merge(const TextStyle(fontSize: 14)),
                   ),
                 ],

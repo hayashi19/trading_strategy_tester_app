@@ -5,7 +5,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class ADS extends StatelessWidget {
   AdWithView ad;
-  ADS({Key? key, required this.ad}) : super(key: key);
+  ADS({super.key, required this.ad});
 
   @override
   Widget build(BuildContext context) {
